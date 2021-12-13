@@ -32,7 +32,7 @@
   <div class="col-md-12 col-lg-6 col-xxxl-6">
     <nb-card>
       <nb-card-body>
-        <nb-stepper #stepper>
+        <nb-stepper #stepper cy-data="horizontalStepper">
           <nb-step [stepControl]="firstForm" label="First step">
             <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
               <p class="lorem">
