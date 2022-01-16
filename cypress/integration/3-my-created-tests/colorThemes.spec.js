@@ -7,7 +7,7 @@ describe('Color Themes', () => {
     beforeEach('Run before each test', () => {
 
         cy.visit('/')
-        cy.get('nav nb-select').click()
+        //cy.get('nav nb-select').click()
     })
 
     it('Dark Theme', () => {
@@ -49,4 +49,19 @@ describe('Color Themes', () => {
         cy.get('nb-layout-header nav').should('have.css', 'background-color', 'rgb(255, 255, 255)')
         cy.get('div .layout').should('have.css', 'background-color', 'rgb(237, 241, 247)')
     })
+
+    it.only('Cycle Through Themes', () => {
+
+        cy.visit('/')
+        cy.get('nav nb-select').then(dropdown => {
+            cy.wrap(dropdown).click()
+            cy.get('.options-list nb-options').each(listItem =>{
+                const itemText = listItem.text().trim()
+
+                cy.wrap(listItem).click()
+                cy.wrap(dropdown).should('contain', itemText)
+            })
+        })
+    })
+
 })
