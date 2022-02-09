@@ -33,6 +33,9 @@ describe("Our first test suite", () => {
         //by Tag Name, Attribute with value, ID and Class name
         cy.get('input[placeholder="Email"]#inputEmail1.input-full-width')
 
+        //by Tag Name of Parent and Tag Name of Child (get Child from Parent)
+        cy.get('nav nb-select') //nav is a parent elemnt for nb-select
+
         //Cypress Best Practice
         cy.get('[data-cy="imputEmail1"]')
 
